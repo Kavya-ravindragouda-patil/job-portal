@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employer Dashboard</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f2f6;
+    color: #333;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #2f3542;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar h2 { color: #fff; margin-bottom: 40px; }
+  .sidebar a {
+    display: block;
+    width: 80%;
+    text-align: center;
+    padding: 12px 0;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #57606f;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover { background-color: #1e90ff; }
+  .sidebar .logout { background-color: #ff4757; }
+  .sidebar .logout:hover { background-color: #e84118; }
+
+  /* Main */
+  .main { margin-left: 240px; padding: 40px; }
+  h1, h2 { color: #1e90ff; }
+
+  /* Post Job Form */
+  .post-job-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+  }
+
+  .post-job-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .post-job-form input[type="text"], .post-job-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .post-job-form input[type="text"]:focus, .post-job-form textarea:focus {
+    border-color: #1e90ff;
+    outline: none;
+  }
+
+  .post-job-form textarea { resize: vertical; min-height: 100px; }
+
+  .post-job-form button {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .post-job-form button:hover { background-color: #3742fa; }
+
+  /* Job Cards */
+  .job-card {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .job-card h3 { margin-top: 0; margin-bottom: 10px; color: #1e90ff; }
+  .job-card p { margin: 5px 0; }
+
+  .applications { margin-top: 10px; padding-left: 20px; }
+  .applications li { margin-bottom: 5px; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sidebar { width: 100%; height: auto; flex-direction: row; justify-content: space-around; }
+    .main { margin-left: 0; padding: 20px; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>JobPortal</h2>
+  <a href="/employer-dashboard">Dashboard</a>
+  <a href="/post-job">Post Job</a>
+  <a href="/employer-dashboard">View Posted Jobs</a>
+  <a class="logout" href="/logout">Logout</a>
+</div>
+
+<div class="main">
+  <h1>Employer Dashboard</h1>
+
+  <!-- Post Job Form -->
+  <div class="post-job-form">
+    <h2>Post a New Job</h2>
+    <form action="/post-job" method="POST">
+      <label for="title">Job Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter Job Title" required>
+
+      <label for="company">Company Name</label>
+      <input type="text" id="company" name="company" placeholder="Enter Company Name" required>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="Enter Location" required>
+
+      <label for="description">Job Description</label>
+      <textarea id="description" name="description" placeholder="Enter Job Description" required></textarea>
+
+      <button type="submit">Post Job</button>
+    </form>
+  </div>
+
+  <!-- List of Posted Jobs -->
+  <h2>Your Posted Jobs</h2>
+  <% if (!jobs || jobs.length === 0) { %>
+    <p>No jobs posted yet.</p>
+  <% } else { %>
+    <% jobs.forEach(job => { %>
+      <div class="job-card">
+        <h3><%= job.title %></h3>
+        <p><strong>Company:</strong> <%= job.company %></p>
+        <p><strong>Location:</strong> <%= job.location %></p>
+        <p><strong>Description:</strong> <%= job.description %></p>
+        <p><strong>Posted At:</strong> <%= new Date(job.createdAt).toDateString() %></p>
+
+        <h4>Applications (<%= job.applications.length %>)</h4>
+        <% if (job.applications.length === 0) { %>
+          <p>No applications yet.</p>
+        <% } else { %>
+          <ul class="applications">
+            <% job.applications.forEach(app => { %>
+              <li>
+                <strong>Name:</strong> <%= app.userId ? app.userId.name : "N/A" %>,
+                <strong>Email:</strong> <%= app.email %>,
+                <strong>Phone:</strong> <%= app.phone %>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
+      </div>
+    <% }) %>
+  <% } %>
+
+</div>
+</body>
+</html>

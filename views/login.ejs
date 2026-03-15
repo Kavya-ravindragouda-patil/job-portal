@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6fb;
+text-align:center;
+}
+
+nav{
+background:#0a2540;
+color:white;
+padding:15px 80px;
+display:flex;
+justify-content:space-between;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.container{
+padding-top:120px;
+}
+
+input{
+padding:10px;
+width:250px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#0a2540;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<h2>JobPortal</h2>
+
+<ul>
+<li onclick="openPage('/')">Home</li>
+<li onclick="openPage('/register')">Register</li>
+</ul>
+
+</nav>
+
+<div class="container">
+
+<h1>Login</h1>
+
+<form action="/login" method="POST">
+
+<input type="text" name="email" placeholder="Email" required><br>
+
+<input type="password" name="password" placeholder="Password" required><br>
+
+<button type="submit">Login</button>
+
+</form>
+
+</div>
+
+<script>
+function openPage(page){
+window.open(page,"_self");
+}
+</script>
+
+</body>
+</html>
