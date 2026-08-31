@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+        .container { 
+            background-color: #fff; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+            width: 100%; 
+            max-width: 500px; 
+        }
+        h1 { 
+            text-align: center; 
+            color: #333; 
+            margin-bottom: 20px; 
+        }
+        input, textarea, button { 
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border-radius: 4px; 
+            border: 1px solid #ccc; 
+        }
+        textarea { 
+            resize: vertical; 
+            height: 100px; 
+        }
+        button { 
+            background-color: #28a745; 
+            color: #fff; 
+            border: none; 
+            cursor: pointer; 
+        }
+        button:hover { 
+            background-color: #218838; 
+        }
+        a { 
+            display: block; 
+            text-align: center; 
+            margin-top: 10px; 
+            color: #007bff; 
+            text-decoration: none; 
+        }
+        a:hover { 
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Post a New Job</h1>
+        <form action="/post-jobs" method="POST">
+            <input type="text" name="title" placeholder="Job Title" required />
+            <input type="text" name="company" placeholder="Company Name" required />
+            <input type="text" name="location" placeholder="Location" required />
+            <textarea name="description" placeholder="Job Description" required></textarea>
+            <button type="submit">Post Job</button>
+        </form>
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>

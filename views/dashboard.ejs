@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- =================================
+SIDEBAR
+================================= -->
+
+<div class="sidebar">
+
+<h2>JobPortal</h2>
+
+<ul>
+
+<li><a href="/dashboard">Dashboard</a></li>
+
+<% if(role === "jobseeker") { %>
+
+<li><a href="/applications">My Applications</a></li>
+<% } %>
+
+<% if(role === "employer") { %>
+
+<li><a href="/post-job">Post Job</a></li>
+<% } %>
+
+<li><a href="/logout">Logout</a></li>
+
+</ul>
+
+</div>
+
+<!-- =================================
+MAIN CONTENT
+================================= -->
+
+<div class="main-content">
+
+<!-- =================================
+TOP BAR
+================================= -->
+
+<div class="topbar">
+
+<h2>Welcome, <%= user.name %></h2>
+
+<form action="/dashboard" method="GET" class="search-bar">
+
+<input
+type="text"
+name="search"
+placeholder="Search jobs by title, company or location"
+
+>
+
+<button type="submit">Search</button>
+
+</form>
+
+</div>
+
+<!-- =================================
+JOB LIST
+================================= -->
+
+<h2>Available Jobs</h2>
+
+<% if(!jobs || jobs.length === 0) { %>
+
+<p>No jobs available</p>
+
+<% } else { %>
+
+<div class="jobs-container">
+
+<% jobs.forEach(job => { %>
+
+<div class="job-card">
+
+<h3><%= job.title %></h3>
+
+<p><b>Company:</b> <%= job.company %></p>
+
+<p><b>Location:</b> <%= job.location %></p>
+
+<p><%= job.description %></p>
+
+<!-- =================================
+APPLY BUTTON (JOB SEEKER)
+================================= -->
+
+<% if(role === "jobseeker") { %>
+
+<a href="/apply-job/<%= job._id %>">
+<button class="apply-btn">
+Apply Job
+</button>
+</a>
+
+<% } %>
+
+<!-- =================================
+VIEW APPLICANTS (EMPLOYER)
+================================= -->
+
+<% if(role === "employer") { %>
+
+<a href="/view-applications/<%= job._id %>">
+<button class="view-btn">
+View Applicants
+</button>
+</a>
+
+<% } %>
+
+</div>
+
+<% }) %>
+
+</div>
+
+<% } %>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

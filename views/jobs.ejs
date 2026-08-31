@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Listings</title>
+</head>
+<body>
+    <h1>All Jobs</h1>
+    <a href="/dashboard">Back to Dashboard</a>
+    <% if (jobs.length === 0) { %>
+        <p>No jobs available.</p>
+    <% } else { %>
+        <ul>
+        <% jobs.forEach(job => { %>
+            <li>
+                <strong><%= job.title %></strong> at <%= job.company %> 
+                <form action="/apply/<%= job._id %>" method="POST" style="display:inline;">
+                    <button type="submit">Apply</button>
+                </form>
+            </li>
+        <% }) %>
+        </ul>
+    <% } %>
+</body>
+</html>

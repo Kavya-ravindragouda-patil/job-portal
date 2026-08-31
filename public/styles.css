@@ -1,0 +1,301 @@
+/* ===================================
+GOOGLE FONT
+=================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ===================================
+GLOBAL STYLES
+=================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f1f5f9;
+min-height:100vh;
+color:#333;
+}
+
+/* ===================================
+HEADINGS
+=================================== */
+
+h1,h2,h3{
+text-align:center;
+margin-bottom:20px;
+color:#333;
+}
+
+/* ===================================
+LOGIN / REGISTER FORM
+=================================== */
+
+.form-container{
+width:100%;
+max-width:420px;
+background:white;
+padding:40px;
+margin:70px auto;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ===================================
+INPUT FIELDS
+=================================== */
+
+input,select{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #d1d5db;
+font-size:15px;
+}
+
+input:focus,select:focus{
+border-color:#2563eb;
+outline:none;
+}
+
+/* ===================================
+BUTTONS
+=================================== */
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#2563eb;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover
+
+/* ===================================
+LINKS
+=================================== */
+
+a{
+display:block;
+text-align:center;
+margin-top:10px;
+color:#2563eb;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+/* ===================================
+DASHBOARD LAYOUT
+=================================== */
+
+.dashboard{
+display:flex;
+min-height:100vh;
+}
+
+/* ===================================
+SIDEBAR
+=================================== */
+
+.sidebar{
+width:240px;
+background:#1e293b;
+color:white;
+padding:30px 20px;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar ul li{
+margin:18px 0;
+}
+
+.sidebar ul li a{
+color:white;
+text-decoration:none;
+font-size:16px;
+padding:10px;
+display:block;
+border-radius:6px;
+transition:0.3s;
+}
+
+.sidebar ul li a:hover
+
+/* ===================================
+MAIN CONTENT
+=================================== */
+
+.main-content{
+flex:1;
+padding:30px;
+}
+
+/* ===================================
+TOPBAR
+=================================== */
+
+.topbar{
+background:white;
+padding:15px 20px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+margin-bottom:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+/* ===================================
+SEARCH BAR
+=================================== */
+
+.search-bar{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.search-bar input{
+width:250px;
+margin-bottom:0;
+}
+
+.search-bar button{
+width:auto;
+padding:10px 15px;
+}
+
+/* ===================================
+JOB SECTION
+=================================== */
+
+.jobs-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* ===================================
+JOB CARD
+=================================== */
+
+.job-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.job-card:hover{
+transform:translateY(-5px);
+}
+
+.job-card h3{
+margin-bottom:10px;
+color:#2563eb;
+}
+
+.job-card p{
+font-size:14px;
+color:#555;
+margin-bottom:5px;
+}
+
+.job-card button{
+margin-top:10px;
+}
+
+/* ===================================
+APPLY BUTTON
+=================================== */
+
+.apply-btn{
+background:#10b981;
+}
+
+.apply-btn:hover
+
+/* ===================================
+RESUME LINK
+=================================== */
+
+.resume-link{
+display:inline-block;
+margin-top:5px;
+font-size:14px;
+color:#2563eb;
+}
+
+/* ===================================
+RESUME UPLOAD FORM
+=================================== */
+
+.resume-upload{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+margin-bottom:30px;
+}
+
+.resume-upload label{
+font-weight:500;
+margin-bottom:5px;
+display:block;
+}
+
+/* ===================================
+RESPONSIVE DESIGN
+=================================== */
+
+@media(max-width:768px){
+
+.dashboard{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+text-align:center;
+}
+
+.sidebar ul li{
+display:inline-block;
+margin:10px;
+}
+
+.main-content{
+padding:20px;
+}
+
+.search-bar{
+flex-direction:column;
+}
+
+.search-bar input{
+width:100%;
+}
+
+}
