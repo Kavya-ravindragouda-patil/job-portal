@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Job Portal</title>
+
+<title>Job Portal - New Release</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -13,6 +18,7 @@
 }
 
 /* NAVBAR */
+
 nav{
   display:flex;
   justify-content:space-between;
@@ -35,7 +41,7 @@ nav ul li a{
   text-decoration:none;
   color:white;
   font-weight:bold;
-  transition: color 0.3s;
+  transition:color 0.3s;
 }
 
 nav ul li a:hover{
@@ -43,6 +49,7 @@ nav ul li a:hover{
 }
 
 /* HERO */
+
 .hero{
   height:80vh;
   background:url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d") center/cover no-repeat;
@@ -65,6 +72,7 @@ nav ul li a:hover{
 }
 
 /* SEARCH BOX */
+
 .search-box{
   margin-top:20px;
 }
@@ -83,7 +91,7 @@ nav ul li a:hover{
   color:white;
   cursor:pointer;
   border-radius:4px;
-  transition: background 0.3s;
+  transition:background 0.3s;
 }
 
 .search-box button:hover{
@@ -91,6 +99,7 @@ nav ul li a:hover{
 }
 
 /* CATEGORIES */
+
 .categories{
   padding:50px 20px;
   text-align:center;
@@ -109,64 +118,114 @@ nav ul li a:hover{
   padding:20px;
   width:150px;
   border-radius:8px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:transform 0.3s, box-shadow 0.3s;
 }
 
 .category:hover{
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transform:translateY(-5px);
+  box-shadow:0 8px 15px rgba(0,0,0,0.1);
 }
+
 </style>
 
 </head>
+
 <body>
 
 <!-- NAVBAR -->
+
 <nav>
+
   <h2>JOB PORTAL</h2>
+
   <ul>
+
     <li><a href="/">Home</a></li>
+
     <li><a href="/login">Job Seeker Login</a></li>
+
     <li><a href="/register">Register</a></li>
+
     <li><a href="/login">Employer Login</a></li>
+
   </ul>
+
 </nav>
 
 <!-- HERO SECTION -->
+
 <section class="hero">
+
   <h1>Find The Perfect <span>Job</span></h1>
+
   <p>Search thousands of jobs from top companies</p>
 
   <div class="search-box">
+
     <form action="/dashboard" method="GET">
+
       <input type="text" name="search" placeholder="Search jobs..." required>
+
       <button type="submit">Search</button>
+
     </form>
+
   </div>
+
 </section>
 
 <!-- JOB CATEGORIES -->
+
 <section class="categories">
+
   <h2>Popular Job Categories</h2>
+
   <div class="category-container">
+
     <div class="category">
+
       <h3>IT</h3>
+
       <p>120 Jobs</p>
+
     </div>
+
     <div class="category">
+
       <h3>Marketing</h3>
+
       <p>80 Jobs</p>
+
     </div>
+
     <div class="category">
+
       <h3>HR</h3>
+
       <p>45 Jobs</p>
+
     </div>
+
     <div class="category">
+
       <h3>Finance</h3>
+
       <p>60 Jobs</p>
+
     </div>
+
   </div>
+
 </section>
 
+<!-- NEW RELEASE -->
+
+<footer style="text-align:center; padding:20px; background:#222; color:white;">
+
+  <p>Job Portal - New Release v2.0</p>
+
+</footer>
+
 </body>
+
 </html>
