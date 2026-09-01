@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Farm2Home</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<nav><h2>🌾 Farm2Home</h2><ul><li><a href="/">Home</a></li><li><a href="/login">Login</a></li><li><a href="/register">Register</a></li></ul></nav>
+<section class="hero"><h1>Fresh from <span>Farm to Home</span></h1><p>Buy fresh local produce directly from farmers and get it delivered to your doorstep.</p><a class="btn" href="/register">Get Started</a></section>
+<div class="container"><h2 style="margin-bottom:18px">Fresh Products</h2><div class="grid">
+<% if (!products.length) { %><div class="card"><p>No products are available yet. Farmers can register and add products.</p></div><% } %>
+<% products.forEach(p=>{ %><div class="card product-card"><h3><%= p.name %></h3><p><span class="badge"><%= p.category %></span></p><p>Farmer: <%= p.farmer ? p.farmer.name : "Local Farmer" %></p><p class="price">₹<%= p.price.toFixed(2) %> / <%= p.unit %></p><p><%= p.description %></p><p>Available: <%= p.quantityAvailable %> <%= p.unit %></p></div><% }) %>
+</div></div><footer>Farm2Home — Connecting farmers, customers and delivery partners.</footer>
+</body></html>
